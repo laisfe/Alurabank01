@@ -6,7 +6,7 @@ class NegociacaoController {
     }
     adiciona(event) {
         event.preventDefault();
-        const negociacao = new Negocioacao(this._inputData.value, this._inputQuantidade.value, this._inputValor.value);
+        const negociacao = new Negocioacao(new Date(this._inputData.value.replace(/-/g, ',')), parseInt(this._inputQuantidade.value), parseFloat(this._inputValor.value));
         console.log(negociacao);
     }
 }
