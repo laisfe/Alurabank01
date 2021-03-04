@@ -9,9 +9,9 @@ class NegociacaoController {
 
     constructor() {
 
-        this._inputData = $('#data');
-        this._inputQuantidade = $('#quantidade');
-        this._inputValor = $('#valor');
+        this._inputData = $('#data'); //usando JQuery
+        this._inputQuantidade = $('#quantidade'); //usando JQuery
+        this._inputValor = $('#valor'); //usando JQuery
         this._negociacoesView.update(this._negociacoes);
 
     }

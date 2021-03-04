@@ -4,7 +4,7 @@ abstract class View<T> {
 
     constructor(seletor: string) {
 
-        this._elemento = $(seletor);
+        this._elemento = $(seletor); //usando JQuery
     }
 
     update(model: T): void {
