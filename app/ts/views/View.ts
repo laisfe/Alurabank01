@@ -13,7 +13,7 @@ export abstract class View<T> {
         let template = this.template(model);
 
         if (this._escapar)
-            template = template.replace(/<script>[\s\S]*?<\/script>/g, '';)
+            template = template.replace(/<script>[\s\S]*?<\/script>/g, '');
 
         this._elemento.html(template);
     }
