@@ -2,6 +2,8 @@ import { Negociacoes, Negociacao } from '../models/index';
 
 import { NegociacoesView, MensagemView } from '../views/index';
 
+import { logarTempoExecucao } from '../helpers/decorators/logarTempoExecucao';
+
 export class NegociacaoController {
 
     private _inputData: JQuery;
@@ -20,6 +22,7 @@ export class NegociacaoController {
 
     }
 
+    @logarTempoExecucao()
     adiciona(event: Event): void {
 
         event.preventDefault();

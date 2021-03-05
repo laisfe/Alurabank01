@@ -1,3 +1,5 @@
+import { logarTempoExecucao } from "../helpers/decorators/logarTempoExecucao";
+
 export abstract class View<T> {
 
     private _elemento: JQuery;
@@ -9,6 +11,7 @@ export abstract class View<T> {
         this._escapar = escapar;
     }
 
+    @logarTempoExecucao(false)
     update(model: T): void {
         let template = this.template(model);
 
