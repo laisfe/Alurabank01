@@ -1,4 +1,4 @@
-import { Negociacoes, Negocioacao } from '../models/index';
+import { Negociacoes, Negociacao } from '../models/index';
 
 import { NegociacoesView, MensagemView } from '../views/index';
 
@@ -24,7 +24,7 @@ export class NegociacaoController {
 
         event.preventDefault();
 
-        const negociacao = new Negocioacao(
+        const negociacao = new Negociacao(
             new Date(this._inputData.val().replace(/-/g, ',')),
             parseInt(this._inputQuantidade.val()),
             parseFloat(this._inputValor.val())
