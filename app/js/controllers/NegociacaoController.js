@@ -1,4 +1,4 @@
-System.register(["../models/index", "../views/index", "../helpers/decorators/domInject"], function (exports_1, context_1) {
+System.register(["../models/index", "../views/index", "../helpers/decorators/index"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["../models/index", "../views/index", "../helpers/decorators/dom
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var index_1, index_2, domInject_1, NegociacaoController, DiaSemana;
+    var index_1, index_2, index_3, NegociacaoController, DiaSemana;
     return {
         setters: [
             function (index_1_1) {
@@ -16,8 +16,8 @@ System.register(["../models/index", "../views/index", "../helpers/decorators/dom
             function (index_2_1) {
                 index_2 = index_2_1;
             },
-            function (domInject_1_1) {
-                domInject_1 = domInject_1_1;
+            function (index_3_1) {
+                index_3 = index_3_1;
             }
         ],
         execute: function () {
@@ -28,8 +28,7 @@ System.register(["../models/index", "../views/index", "../helpers/decorators/dom
                     this._mensagemView = new index_2.MensagemView('#mensagemView');
                     this._negociacoesView.update(this._negociacoes);
                 }
-                adiciona(event) {
-                    event.preventDefault();
+                adiciona() {
                     let data = new Date(this._inputData.val().replace(/-/g, ','));
                     if (!this._DiaUtil(data)) {
                         this._mensagemView.update('Somente negociações em dias úteis, por favor.');
@@ -65,14 +64,20 @@ System.register(["../models/index", "../views/index", "../helpers/decorators/dom
                 }
             };
             __decorate([
-                domInject_1.domInject('#data')
+                index_3.domInject('#data')
             ], NegociacaoController.prototype, "_inputData", void 0);
             __decorate([
-                domInject_1.domInject('#quantidade')
+                index_3.domInject('#quantidade')
             ], NegociacaoController.prototype, "_inputQuantidade", void 0);
             __decorate([
-                domInject_1.domInject('#valor')
+                index_3.domInject('#valor')
             ], NegociacaoController.prototype, "_inputValor", void 0);
+            __decorate([
+                index_3.throttle()
+            ], NegociacaoController.prototype, "adiciona", null);
+            __decorate([
+                index_3.throttle()
+            ], NegociacaoController.prototype, "importaDados", null);
             exports_1("NegociacaoController", NegociacaoController);
             (function (DiaSemana) {
                 DiaSemana[DiaSemana["Domingo"] = 0] = "Domingo";
