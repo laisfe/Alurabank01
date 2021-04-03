@@ -6,6 +6,8 @@ import { domInject, throttle } from '../helpers/decorators/index';
 
 import { NegociacaoService } from '../service/index'
 
+import { imprime } from '../helpers/index'
+
 export class NegociacaoController {
 
     @domInject('#data')
@@ -45,6 +47,8 @@ export class NegociacaoController {
 
         this._negociacoes.adiciona(negociacao);
 
+        imprime(negociacao, this._negociacoes);
+        
         this._negociacoesView.update(this._negociacoes);
 
         this._mensagemView.update('Negociação adicionada com sucesso!');
